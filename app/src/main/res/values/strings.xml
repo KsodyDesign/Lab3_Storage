@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Lab3_Storage</string>
+    <string name="notes_title">Заметки (Хранилище)</string>
+    <string name="hint_note">Введите заметку...</string>
+    <string name="btn_save_sp">Сохранить (SharedPreferences)</string>
+    <string name="btn_load_sp">Загрузить (SharedPreferences)</string>
+    <string name="btn_clear_sp">Очистить (SharedPreferences)</string>
+    <string name="btn_save_file">Сохранить в файл</string>
+    <string name="btn_load_file">Загрузить из файла</string>
+    <string name="btn_open_recycler">Перейти к списку заметок (RecyclerView)</string>
+    <string name="recycler_title">Список заметок (RecyclerView)</string>
+    <string name="hint_new_note">Новая заметка</string>
+    <string name="btn_add">Добавить</string>
+    <string name="btn_delete">Удалить</string>
+    <string name="btn_back">Назад</string>
+</resources>
