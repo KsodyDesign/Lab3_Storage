@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerActivity : AppCompatActivity() {
+class RecyclerActivity : BaseActivity() {
 
     private lateinit var etNewNote: EditText
     private lateinit var btnAdd: Button
@@ -22,6 +21,11 @@ class RecyclerActivity : AppCompatActivity() {
         "Повторить жизненный цикл Activity"
     )
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putStringArrayList("notes", ArrayList(notesList))
+        super.onSaveInstanceState(outState)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
@@ -30,6 +34,11 @@ class RecyclerActivity : AppCompatActivity() {
         btnAdd = findViewById(R.id.btnAdd)
         btnBack = findViewById(R.id.btnBack)
         rvNotes = findViewById(R.id.rvNotes)
+
+        savedInstanceState?.getStringArrayList("notes")?.let {
+            notesList.clear()
+            notesList.addAll(it)
+        }
 
         adapter = NotesAdapter(notesList) { position ->
             adapter.removeNote(position)

@@ -7,10 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var etNote: EditText
     private lateinit var tvResult: TextView
@@ -55,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         // SharedPreferences: Очистка заметки
         findViewById<Button>(R.id.btnClearSP).setOnClickListener {
             sp.edit().remove(PREF_KEY).apply()
+            etNote.text.clear()
             tvResult.text = "SharedPreferences очищен"
             Toast.makeText(this, "Очищено", Toast.LENGTH_SHORT).show()
         }
